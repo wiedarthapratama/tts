@@ -31,6 +31,7 @@ class HelloWorld(flask_restful.Resource):
             file = os.path.join("/static", filename)
         else:
             mytext = judul+" "+deskripsi
+            mytext = mytext.replace("’","")
 
             # findBs = re.search("\Ɗ", mytext)
             # findBs2 = re.search("\đ", mytext)
