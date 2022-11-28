@@ -1,3 +1,5 @@
 gTTS
 Flask
 flask-restful
+langdetect
+googletrans

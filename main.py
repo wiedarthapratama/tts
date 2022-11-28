@@ -32,12 +32,13 @@ class HelloWorld(flask_restful.Resource):
         else:
             mytext = judul+" "+deskripsi
 
-            findBs = re.search("\Ɗ", mytext)
-            findBs2 = re.search("\đ", mytext)
-            if findBs != None or findBs2 != None : 
-                language = 'bs'
-            else:
-                language = 'id'
+            # findBs = re.search("\Ɗ", mytext)
+            # findBs2 = re.search("\đ", mytext)
+            # if findBs != None or findBs2 != None : 
+            #     language = 'bs'
+            # else:
+            #     language = 'id'
+            language = 'id'
 
             myobj = gTTS(text=mytext, lang=language, slow=False)
             myobj.save(filename)
