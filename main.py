@@ -15,6 +15,7 @@ class HelloWorld(flask_restful.Resource):
         id = json_data['id']
         judul = json_data['judul']
         deskripsi = json_data['deskripsi']
+        deskripsi = deskripsi.translate ({ord(c): " " for c in "’!@#$%^&*()[]{};:,./<>?\|`~-=_+"})
         jenis = json_data['jenis']
 
         if jenis == 'meher':
