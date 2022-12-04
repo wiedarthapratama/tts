@@ -15,6 +15,8 @@ class HelloWorld(flask_restful.Resource):
         id = json_data['id']
         judul = json_data['judul']
         deskripsi = json_data['deskripsi']
+        CLEANR = re.compile('<.*?>')
+        deskripsi = re.sub(CLEANR, '', deskripsi)
         deskripsi = deskripsi.translate ({ord(c): " " for c in "’!@#$%^&*()[]{};:,./<>?\|`~-=_+"})
         jenis = json_data['jenis']
 
@@ -48,7 +50,7 @@ class HelloWorld(flask_restful.Resource):
 
             file = os.path.join("/static", filename)
 
-        return flask.jsonify(file=file)
+        return flask.jsonify(file=file,deskripsi=deskripsi)
 
 api.add_resource(HelloWorld, '/')
 
