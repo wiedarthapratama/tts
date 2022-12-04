@@ -18,6 +18,7 @@ class HelloWorld(flask_restful.Resource):
         CLEANR = re.compile('<.*?>')
         deskripsi = re.sub(CLEANR, '', deskripsi)
         deskripsi = deskripsi.translate ({ord(c): " " for c in "’!@#$%^&*()[]{};:,./<>?\|`~-=_+"})
+        deskripsi = deskripsi.replace("rsquo","")
         jenis = json_data['jenis']
 
         if jenis == 'meher':
